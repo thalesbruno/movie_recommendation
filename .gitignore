@@ -1,0 +1,5 @@
+venv
+.vscode
+__pycache__
+*.pkl
+movies_pos.csv
