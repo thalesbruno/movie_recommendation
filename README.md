@@ -23,6 +23,8 @@ Create the model
 (venv) python recommendation.py
 ```
 
+The two previous steps we run once. The results are the data set preprocessed `movies_pos.csv` and the pickle binary `cosine.pkl` with the cosine simirality array already trained with the dataset data, we will use both in the `api.py`. We only will need to run these two steps again if we change the data set, or change the preproces steps, or the model parameters.
+
 Run the fastapi server
 ```python
 uvicorn api:app --reload
