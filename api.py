@@ -1,6 +1,7 @@
 import pickle
 import pandas as pd
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
+from typing import Optional
 
 app = FastAPI()
 
@@ -16,9 +17,21 @@ def read_root():
     return {"Hello": "World"}
 
 
+@app.get("/movies/")
+async def search_movie(q: str = Query(..., min_length=2, max_length=40)):
+    movies = df[df.original_title.str.contains(q)]
+    results = [{"id": movie[0], "title": movie[1].original_title}
+               for movie in movies.iterrows()]
+    return results
+
+
 @app.get("/movies/{movie_id}")
 def read_movie(movie_id: int):
-    return {"movie_id": movie_id}
+    movie = df.iloc[movie_id]
+    return {"id": movie_id,
+            "title": movie.original_title,
+            "genres": movie.genres,
+            "overview": movie.overview}
 
 
 @app.get("/movies/{movie_id}/recommendation")
