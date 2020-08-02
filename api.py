@@ -7,9 +7,9 @@ app = FastAPI()
 
 
 # Import the dataframe posprocessed
-df = pd.read_csv("movies_pos.csv")
+df = pd.read_csv("data/movies_pos.csv")
 # Import the model trained - use pickle
-y = pickle.load(open('cosine.pkl', 'rb'))
+y = pickle.load(open('data/cosine.pkl', 'rb'))
 
 
 @app.get("/")

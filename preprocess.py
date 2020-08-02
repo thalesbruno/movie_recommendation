@@ -2,7 +2,7 @@ import pandas as pd
 
 
 # Read CSV file
-df = pd.read_csv("movies.csv")
+df = pd.read_csv("data/movies.csv")
 
 # Select features
 # ['genres', 'keywords']
@@ -18,4 +18,4 @@ df.drop(labels='index', axis=1, inplace=True)
 df['features'] = df['genres']+' '+df['keywords']
 
 # Exporting the data frame posprocessed
-df.to_csv('movies_pos.csv')
+df.to_csv('data/movies_pos.csv')
