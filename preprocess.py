@@ -2,7 +2,7 @@ import pandas as pd
 
 
 # Read CSV file
-df = pd.read_csv("data/movies.csv")
+df = pd.read_csv("./data/movies.csv")
 
 # Select features
 # ['genres', 'keywords']
@@ -19,6 +19,6 @@ df['features'] = df['genres']+' '+df['keywords']
 
 # Exporting the data frame posprocessed
 try:
-    df.to_csv('data/movies_pos.csv')
+    df.to_csv('./data/movies_pos.csv')
 except EnvironmentError as e:
     print(e)
