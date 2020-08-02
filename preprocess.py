@@ -18,4 +18,7 @@ df.drop(labels='index', axis=1, inplace=True)
 df['features'] = df['genres']+' '+df['keywords']
 
 # Exporting the data frame posprocessed
-df.to_csv('data/movies_pos.csv')
+try:
+    df.to_csv('data/movies_pos.csv')
+except EnvironmentError as e:
+    print(e)
