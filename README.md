@@ -1,8 +1,16 @@
 # Movie Recommendation
 
-Still in development...
+### Install
 
-### Usage
+#### With docker-compose
+
+Since you already have Docker and docker-compose installed, there's just one step:
+
+```
+docker-compose up -d
+```
+
+#### With python virtual environment
 
 Activate python virtual envirnonment and install the requirements
 
@@ -30,12 +38,27 @@ Run the fastapi server
 uvicorn api:app --reload
 ```
 
+## Usage
+
 Access the application on: `http://127.0.0.1:8000`   
+
 Access the API documentation on : `http://127.0.0.1:8000/docs` or `http://127.0.0.1:8000/redoc`
 
 Make request using a browser, the docs pages or any other API request application
 
-Example using `curl`
+Examples using `curl`:
+
+#### Search for the Interstellar movie
 ```
-curl -X GET "http://127.0.0.1:8000/movies/0/recommendation" -H  "accept: application/json"
+curl -X GET "http://127.0.0.1:8000/movies/?q=Interstellar" -H  "accept: application/json"
+```
+
+#### Get the details of Interstellar by its ID
+```
+curl -X GET "http://127.0.0.1:8000/movies/93" -H  "accept: application/json"
+```
+
+#### Get a list of Interstellar similar movies
+```
+curl -X GET "http://127.0.0.1:8000/movies/93/recommendation" -H  "accept: application/json"
 ```
