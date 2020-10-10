@@ -4,9 +4,6 @@ import pandas as pd
 # Read CSV file
 df = pd.read_csv("data/movies.csv")
 
-# Select features
-# ['genres', 'keywords']
-
 # Drop rows with missing values in the selected features
 df.dropna(subset=['genres', 'keywords'], inplace=True)
 

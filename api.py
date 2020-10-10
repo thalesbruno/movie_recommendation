@@ -5,7 +5,7 @@ from typing import Optional
 
 app = FastAPI(
     title="Movie recommendation API",
-    description="A movie recommendation API build in Python and scikit learn",
+    description="A movie recommendation API built in Python with scikit learn models and fastapi web framework",
     version="0.0.1"
 )
 
