@@ -3,18 +3,17 @@ import pandas as pd
 from fastapi import FastAPI, Query
 from typing import Optional
 
-app = FastAPI()
+app = FastAPI(
+    title="Movie recommendation API",
+    description="A movie recommendation API build in Python and scikit learn",
+    version="0.0.1"
+)
 
 
 # Import the dataframe posprocessed
 df = pd.read_csv("data/movies_pos.csv")
 # Import the model trained - use pickle
 y = pickle.load(open('data/cosine.pkl', 'rb'))
-
-
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
 
 
 @app.get("/movies/")
