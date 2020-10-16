@@ -5,12 +5,12 @@ import pickle
 
 
 # Read the data set
-df = pd.read_csv("data/movies_pos.csv")
+movies = pd.read_csv("data/movies_pos.csv")
 
 # Create a count matrix from this new combined column
 # Use TFIDF to evaluate how relevant is each word to the text
 tf = TfidfVectorizer()
-X = tf.fit_transform(df.features)
+X = tf.fit_transform(movies.features)
 
 # Compute the cosine similarity based on the count matrix
 # The cosine similarity is the best way to similarity classification on text
