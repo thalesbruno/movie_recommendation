@@ -13,6 +13,7 @@ tf = TfidfVectorizer()
 X = tf.fit_transform(df.features)
 
 # Compute the cosine similarity based on the count matrix
+# The cosine similarity is the best way to similarity classification on text
 y = cosine_similarity(X)
 
 # Dump the cosine similarity vectors
